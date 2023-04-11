@@ -1,8 +1,9 @@
 import type { MaybeRef } from '@/types/vue'
 import { readonly, ref, unref } from 'vue'
+import type { FunctionArgs } from '@/types/function'
 
-export function useTimeoutFn(
-  cb: (...args: any) => void, // 回调
+export function useTimeoutFn<T extends FunctionArgs>(
+  cb: T, // 回调
   interval: MaybeRef<number>, // 时间
   options: {
     immediate?: boolean
